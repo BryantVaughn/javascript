@@ -1,3 +1,5 @@
+// forEach
+
 const nums = [9, 8, 7, 6, 5, 4, 3, 2, 1];
 
 // nums.forEach(function (n) {
@@ -43,3 +45,27 @@ const books = [{
 // for(let book of books) {
 //   console.log(book.title.toUpperCase());
 // }
+
+// Map
+
+const numbers = [20, 21, 22, 23, 24, 25, 26, 27];
+const words = ['asap', 'byob', 'rsvp', 'diy'];
+
+const doubles = numbers.map(function(num) {
+  return num * 2;
+});
+
+const numDetails = numbers.map(function(n) {
+  return {
+    value: n,
+    isEven: n % 2 === 0
+  };
+});
+
+const formatStrings = words.map(function(word) {
+  return word.toUpperCase().split("").join(".");
+});
+
+const bookTitles = books.map(function(b) {
+  return b.title;
+});
