@@ -17,52 +17,52 @@ nums.forEach(function (num, idx) {
 });
 
 const books = [{
-    title: 'Good Omens',
-    authors: ['Terry Pratchett', 'Neil Gaiman'],
+    title: "Good Omens",
+    authors: ["Terry Pratchett", "Neil Gaiman"],
     rating: 4.25,
-    genres: ['fiction', 'fantasy']
+    genres: ["fiction", "fantasy"]
   },
   {
-    title: 'Bone: The Complete Edition',
-    authors: ['Jeff Smith'],
+    title: "Bone: The Complete Edition",
+    authors: ["Jeff Smith"],
     rating: 4.42,
-    genres: ['nonfiction', 'essays']
+    genres: ["nonfiction", "essays"]
   },
   {
-    title: 'American Gods',
-    authors: ['Neil Gaiman'],
+    title: "American Gods",
+    authors: ["Neil Gaiman"],
     rating: 4.11,
-    genres: ['fiction', 'graphic novel', 'fantasy']
+    genres: ["fiction", "graphic novel", "fantasy"]
   },
   {
-    title: 'A Gentleman in Moscow',
-    authors: ['Amor Towles'],
+    title: "A Gentleman in Moscow",
+    authors: ["Amor Towles"],
     rating: 4.36,
-    genres: ['fiction', 'historical fiction']
+    genres: ["fiction", "historical fiction"]
   },
   {
-    title: 'The Name of the Wind',
-    authors: ['Patrick Rothfuss'],
+    title: "The Name of the Wind",
+    authors: ["Patrick Rothfuss"],
     rating: 4.54,
-    genres: ['fiction', 'fantasy']
+    genres: ["fiction", "fantasy"]
   },
   {
-    title: 'The Overstory',
-    authors: ['Richard Powers'],
+    title: "The Overstory",
+    authors: ["Richard Powers"],
     rating: 4.19,
-    genres: ['fiction', 'short stories']
+    genres: ["fiction", "short stories"]
   },
   {
-    title: 'The Way of Kings',
-    authors: ['Brandon Sanderson'],
+    title: "The Way of Kings",
+    authors: ["Brandon Sanderson"],
     rating: 4.65,
-    genres: ['fantasy', 'epic']
+    genres: ["fantasy", "epic"]
   },
   {
-    title: 'Lord of the Flies',
-    authors: ['William Golding'],
+    title: "Lord of the Flies",
+    authors: ["William Golding"],
     rating: 3.67,
-    genres: ['fiction']
+    genres: ["fiction"]
   }
 ];
 
@@ -77,7 +77,7 @@ const books = [{
 // Map
 
 // const numbers = [20, 21, 22, 23, 24, 25, 26, 27];
-// const words = ['asap', 'byob', 'rsvp', 'diy'];
+// const words = ["asap", "byob", "rsvp", "diy"];
 
 // const doubles = numbers.map(function(num) {
 //   return num * 2;
@@ -118,7 +118,7 @@ const movie2 = movies.find(m => (
 const goodBook = books.find(b => b.rating >= 4.3);
 
 const neilBook = books.find(b => (
-  b.authors.includes('Neil Gaiman')
+  b.authors.includes("Neil Gaiman")
 ));
 
 // Filter
@@ -134,8 +134,8 @@ const fantasyBooks = books.filter(book => (
 ));
 
 const shortForm = books.filter(book => (
-  book.genres.includes('short stories') ||
-  book.genres.includes('essays')
+  book.genres.includes("short stories") ||
+  book.genres.includes("essays")
 ));
 
 const query = "The";
@@ -144,3 +144,23 @@ const results = books.filter(book => {
   const title = book.title.toLowerCase();
   return title.includes(query.toLowerCase());
 });
+
+// Every
+
+const words = ["dog", "dig", "log", "bag", "wag"];
+
+const all3Lets = words.every(word => word.length === 3);
+const lastLetter = words.every(word => {
+  const last = word.length - 1;
+  return word[last] === 'g';
+});
+
+const allGoodBooks = books.every(book => book.rating > 3.5);
+
+// Some
+
+const someStartWithD = words.some(word => word[0] === 'd');
+
+const anyTwoAuthors = books.some(book => (
+  book.authors.length === 2
+));
