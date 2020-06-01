@@ -19,22 +19,50 @@ nums.forEach(function (num, idx) {
 const books = [{
     title: 'Good Omens',
     authors: ['Terry Pratchett', 'Neil Gaiman'],
-    rating: 4.25
+    rating: 4.25,
+    genres: ['fiction', 'fantasy']
   },
   {
     title: 'Bone: The Complete Edition',
     authors: ['Jeff Smith'],
-    rating: 4.42
+    rating: 4.42,
+    genres: ['nonfiction', 'essays']
   },
   {
     title: 'American Gods',
     authors: ['Neil Gaiman'],
-    rating: 4.11
+    rating: 4.11,
+    genres: ['fiction', 'graphic novel', 'fantasy']
   },
   {
     title: 'A Gentleman in Moscow',
     authors: ['Amor Towles'],
-    rating: 4.36
+    rating: 4.36,
+    genres: ['fiction', 'historical fiction']
+  },
+  {
+    title: 'The Name of the Wind',
+    authors: ['Patrick Rothfuss'],
+    rating: 4.54,
+    genres: ['fiction', 'fantasy']
+  },
+  {
+    title: 'The Overstory',
+    authors: ['Richard Powers'],
+    rating: 4.19,
+    genres: ['fiction', 'short stories']
+  },
+  {
+    title: 'The Way of Kings',
+    authors: ['Brandon Sanderson'],
+    rating: 4.65,
+    genres: ['fantasy', 'epic']
+  },
+  {
+    title: 'Lord of the Flies',
+    authors: ['William Golding'],
+    rating: 3.67,
+    genres: ['fiction']
   }
 ];
 
@@ -88,6 +116,31 @@ const movie2 = movies.find(m => (
 ));
 
 const goodBook = books.find(b => b.rating >= 4.3);
+
 const neilBook = books.find(b => (
   b.authors.includes('Neil Gaiman')
 ));
+
+// Filter
+
+const oddNums = nums.filter(n => n % 2 === 1);
+
+const bigNums = nums.filter(n => n > 5);
+
+const goodBooks = books.filter(b => b.rating > 4.3);
+
+const fantasyBooks = books.filter(book => (
+  book.genres.includes("fantasy")
+));
+
+const shortForm = books.filter(book => (
+  book.genres.includes('short stories') ||
+  book.genres.includes('essays')
+));
+
+const query = "The";
+
+const results = books.filter(book => {
+  const title = book.title.toLowerCase();
+  return title.includes(query.toLowerCase());
+});
