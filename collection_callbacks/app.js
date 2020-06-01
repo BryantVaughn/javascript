@@ -70,3 +70,24 @@ const books = [{
 //   return b.title;
 // });
 
+// Find
+
+let movies = [
+  "The Fantastic Mr. Fox",
+  "Mr. and Mrs. Smith",
+  "Mrs. Doubtfire",
+  "Mr. Deeds"
+];
+
+const movie = movies.find(movie => {
+  return movie.includes("Mrs.");
+});
+
+const movie2 = movies.find(m => (
+  m.indexOf("Mrs.") === 0
+));
+
+const goodBook = books.find(b => b.rating >= 4.3);
+const neilBook = books.find(b => (
+  b.authors.includes('Neil Gaiman')
+));
