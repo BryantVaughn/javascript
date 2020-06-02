@@ -69,3 +69,30 @@ const catDog = {
 const catDogClone = {
   ...catDog
 };
+
+// Rest
+
+// old way with arguments object
+function sum() {
+  const argsArray = [...arguments];
+  return argsArray.reduce((total, val) => {
+    return total + val;
+  });
+}
+
+// new way with rest
+const sumAll = (...nums) => {
+  return nums.reduce((total, currVal) => {
+    return total + currVal;
+  });
+};
+
+const fullName = (first, last, ...titles) => {
+  console.log("first", first);
+  console.log("last", last);
+  console.log("titles", titles);
+}
+
+const multiplyAll = (...nums) => (
+  nums.reduce((total, currVal) => total * currVal)
+);
