@@ -96,3 +96,68 @@ const fullName = (first, last, ...titles) => {
 const multiplyAll = (...nums) => (
   nums.reduce((total, currVal) => total * currVal)
 );
+
+// Destructuring
+
+const raceResults = [
+  "Eliud Kipchoge",
+  "Feyisa Lelisa",
+  "Galen Rupp",
+  "Ghirmay Ghebreslassie",
+  "Alphonce Simbu",
+  "Jared Ward"
+];
+
+// old way
+const gold = raceResults[0];
+const silver = raceResults[1];
+const bronze = raceResults[2];
+
+// new way with destructuring
+const [gold, silver, bronze] = raceResults;
+// skip some results
+const [first,,,fourth] = raceResults;
+// use rest to collect others
+const [winner, ...others] = raceResults;
+
+const runner = {
+  first: "Eliud",
+  last: "Kipchoge",
+  country: "Kenya",
+  title: "Elder of the Order of the Golden Heart of Kenya"
+};
+
+const {first: firstName, last: lastName} = runner;
+
+const {
+  country: nation,
+  title: honorific
+} = runner;
+
+const {first: firstName, last: lastName, ...others} = runner;
+
+const results = [{
+    first: "Eluid",
+    last: "Kipchoge",
+    country: "Kenya"
+  },
+  {
+    first: "Feyisa",
+    last: "Lilesa",
+    country: "Ethiopia"
+  },
+  {
+    first: "Galen",
+    last: "Rupp",
+    country: "United States"
+  }
+];
+
+const [{first: goldWinner}, {country}] = results;
+
+const [, silverMedal] = results;
+const {country: nation} = silverMedal;
+
+const print = ({first, last, title}) => {
+  console.log(`${first} ${last}, ${title}`);
+};
