@@ -62,3 +62,26 @@ const team = {
 const addProp = (obj, k, v) => ({...obj, [k]: v});
 
 const res = addProp(team, "happy", ":)");
+
+// Object Functions or Methods
+
+// const add = (x, y) => x + y;
+
+const math = {
+  add(x,y) {
+    return x + y;
+  },
+  multiply(x,y) {
+    return x * y;
+  }
+};
+
+const auth = {
+  username: "TommyBot",
+  login() {
+    console.log("LOGGED YOU IN!");
+  },
+  logout() {
+    console.log("LOGGED YOU OUT!");
+  }
+}
