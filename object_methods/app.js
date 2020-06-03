@@ -84,4 +84,49 @@ const auth = {
   logout() {
     console.log("LOGGED YOU OUT!");
   }
+};
+
+// Keyword This
+
+// intro showing functions are added to window object
+function sayHi() {
+  console.log("HI!");
+  console.log(this);
+}
+
+const celeb = {
+  first: "Cherilyn",
+  last: "Sarkisian",
+  nickName: "Cher",
+  fullName() {
+    const {first, last, nickName} = this;
+    return `${first} ${last} AKA ${nickName}`;
+  },
+  printBio() {
+    const fullName = this.fullName();
+    console.log(`${fullName} is a person!`);
+  }
+};
+
+// this is a representation of how it is used...
+// celeb.printBio(): this refers to celeb object
+// const printBio = celeb.printBio: this would refer to window
+// arrow functions don't get their own this and it will refer to the window
+
+const annoyer = {
+  phrases: ["literally", "cray cray", "I can't even", "Totes!", "YOLO", "Can't Stop, Won't Stop"],
+  pickPhrase() {
+    const {phrases} = this;
+    const idx = Math.floor(Math.random() * phrases.length);
+    return phrases[idx];
+  },
+  start() {
+    this.timerId = setInterval(() => {
+      console.log(this.pickPhrase());
+    }, 3000);
+  },
+  stop() {
+    clearInterval(this.timerId);
+    console.log("PHEW THANK HEAVENS THAT IS OVER!");
+  }
 }
