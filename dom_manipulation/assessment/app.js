@@ -25,3 +25,16 @@ console.log(ul.getElementsByClassName("special"));
 
 console.dir(header);
 console.dir(special);
+
+// querySelector() & querySelectorAll()
+
+// select by tag
+const h1 = document.querySelector("h1");
+const firstInput = document.querySelector("input");
+// select by id
+const bearPhoto = document.querySelector("#bear-photo");
+// select by class
+const firstSpecial = document.querySelector(".special");
+const firstSpecialLi = document.querySelector("li.special");
+const peasLi = document.querySelector("section li.special");
+const allSpecialLis = document.querySelectorAll("li.special");
