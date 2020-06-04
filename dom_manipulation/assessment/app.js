@@ -38,3 +38,7 @@ const firstSpecial = document.querySelector(".special");
 const firstSpecialLi = document.querySelector("li.special");
 const peasLi = document.querySelector("section li.special");
 const allSpecialLis = document.querySelectorAll("li.special");
+
+// innerText & textContent
+
+const bodyText = document.body.innerText;
