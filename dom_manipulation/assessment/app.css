@@ -16,4 +16,5 @@ input[type="password"] {
 
 #bear-photo {
   width: 250px;
+  border-radius: 15px;
 }
