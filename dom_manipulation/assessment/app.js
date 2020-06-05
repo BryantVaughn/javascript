@@ -50,3 +50,8 @@ console.log(form.innerHTML);
 
 const ul2 = document.querySelector("ul");
 console.log(ul2.innerHTML);
+
+const inputs2 = document.querySelectorAll("input");
+
+// using value, src, href, and more
+const a = document.querySelector("a");
