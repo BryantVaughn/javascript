@@ -55,3 +55,9 @@ const inputs2 = document.querySelectorAll("input");
 
 // using value, src, href, and more
 const a = document.querySelector("a");
+const bearImg = document.querySelector("img");
+
+// getting and setting attributes
+const range = document.querySelector("input[type='range']");
+// select the max attribute and change the value
+range.setAttribute("max", "1000");
