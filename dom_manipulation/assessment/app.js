@@ -61,3 +61,17 @@ const bearImg = document.querySelector("img");
 const range = document.querySelector("input[type='range']");
 // select the max attribute and change the value
 range.setAttribute("max", "1000");
+
+// parent/children/siblings
+const firstLi = document.querySelector("li");
+const parentOfLi = firstLi.parentElement;
+
+// accessing child elements
+const ul3 = document.querySelector("ul");
+const children = ul3.children;
+children[0].setAttribute("class", "super-special");
+
+// accessing sibling elements
+const secondLi = firstLi.nextElementSibling;
+const thirdLi = secondLi.nextElementSibling;
+const backToSecondLi = thirdLi.previousElementSibling;
