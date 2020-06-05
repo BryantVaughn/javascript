@@ -63,15 +63,25 @@ const range = document.querySelector("input[type='range']");
 range.setAttribute("max", "1000");
 
 // parent/children/siblings
-const firstLi = document.querySelector("li");
-const parentOfLi = firstLi.parentElement;
+// const firstLi = document.querySelector("li");
+// const parentOfLi = firstLi.parentElement;
 
-// accessing child elements
-const ul3 = document.querySelector("ul");
-const children = ul3.children;
-children[0].setAttribute("class", "super-special");
+// // accessing child elements
+// const ul3 = document.querySelector("ul");
+// const children = ul3.children;
+// children[0].setAttribute("class", "super-special");
 
-// accessing sibling elements
-const secondLi = firstLi.nextElementSibling;
-const thirdLi = secondLi.nextElementSibling;
-const backToSecondLi = thirdLi.previousElementSibling;
+// // accessing sibling elements
+// const secondLi = firstLi.nextElementSibling;
+// const thirdLi = secondLi.nextElementSibling;
+// const backToSecondLi = thirdLi.previousElementSibling;
+
+const allLis = document.querySelectorAll("li");
+
+for(let i = 0; i < allLis.length; i++) {
+  allLis[i].innerText = "WE ARE THE CHAMPIONS!";
+}
+
+for(let li of allLis) {
+  li.innerHTML = "WE ARE <b>THE CHAMPIONS!</b>";
+}
