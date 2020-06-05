@@ -78,10 +78,15 @@ range.setAttribute("max", "1000");
 
 const allLis = document.querySelectorAll("li");
 
-for(let i = 0; i < allLis.length; i++) {
-  allLis[i].innerText = "WE ARE THE CHAMPIONS!";
-}
+// for(let i = 0; i < allLis.length; i++) {
+//   allLis[i].innerText = "WE ARE THE CHAMPIONS!";
+// }
+const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
 
-for(let li of allLis) {
-  li.innerHTML = "WE ARE <b>THE CHAMPIONS!</b>";
-}
+allLis.forEach((el, idx) => {
+  el.style.color = colors[idx];
+});
+
+h1.style.color = "orchid";
+p.style.color = "white";
+p.style.backgroundColor = "black";
