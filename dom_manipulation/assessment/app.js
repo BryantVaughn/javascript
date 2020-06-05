@@ -42,3 +42,11 @@ const allSpecialLis = document.querySelectorAll("li.special");
 // innerText & textContent
 
 const bodyText = document.body.innerText;
+
+// innerHTML
+
+const form = document.querySelector("form");
+console.log(form.innerHTML);
+
+const ul2 = document.querySelector("ul");
+console.log(ul2.innerHTML);
