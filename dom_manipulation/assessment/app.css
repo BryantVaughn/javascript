@@ -24,6 +24,11 @@ input[type="password"] {
   border-radius: 15px;
 }
 
+#squirrel-photo {
+  width: 250px;
+  border-radius: 15px;
+}
+
 .todo {
   font-size: 30px;
   color: olive;
@@ -33,3 +38,4 @@ input[type="password"] {
   color: rgba(100,100,100,0.5);
   text-decoration: line-through;
 }
+

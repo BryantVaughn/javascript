@@ -96,3 +96,26 @@ const todo = document.querySelector("#todos .todo");
 // todo.style.textDecoration = "line-through";
 todo.classList.add("done");
 todo.classList.toggle("done");
+
+// adding elements
+
+const h2 = document.createElement("h2");
+h2.innerText = "I like animals.";
+h2.classList.add("special");
+
+const section = document.querySelector("section");
+section.appendChild(h2);
+
+const newImg = document.createElement("img");
+newImg.src = "https://images.unsplash.com/photo-1504006833117-8886a355efbf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80";
+newImg.id = "squirrel-photo";
+
+h1.appendChild(newImg);
+
+const newLink = document.createElement("a");
+newLink.innerText = "Mr. Budz Video! CLICK MEEE";
+newLink.href = "https://www.youtube.com/watch?v=QQNL83fhWJU";
+newLink.target = "_blank";
+
+const firstP = document.querySelector("p");
+firstP.appendChild(newLink);
