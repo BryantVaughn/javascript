@@ -81,12 +81,18 @@ const allLis = document.querySelectorAll("li");
 // for(let i = 0; i < allLis.length; i++) {
 //   allLis[i].innerText = "WE ARE THE CHAMPIONS!";
 // }
-const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+// const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
 
-allLis.forEach((el, idx) => {
-  el.style.color = colors[idx];
-});
+// allLis.forEach((el, idx) => {
+//   el.style.color = colors[idx];
+// });
 
-h1.style.color = "orchid";
-p.style.color = "white";
-p.style.backgroundColor = "black";
+// h1.style.color = "orchid";
+// p.style.color = "white";
+// p.style.backgroundColor = "black";
+
+const todo = document.querySelector("#todos .todo");
+// todo.style.color = "rgba(100,100,100,0.5)";
+// todo.style.textDecoration = "line-through";
+todo.classList.add("done");
+todo.classList.toggle("done");
