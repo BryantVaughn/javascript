@@ -39,6 +39,7 @@ const ulItems = document.querySelector("#list-items");
 
 foodInput.addEventListener("keypress", function(evt) {
   if(evt.key === "Enter") {
+    if(!this.value) return;
     const newItemText = this.value;
     const newItem = document.createElement("li");
     newItem.innerText = newItemText;
