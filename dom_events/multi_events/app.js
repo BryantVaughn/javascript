@@ -1,6 +1,7 @@
 const colors = ["red", "orange", "yellow", "green", "blue", "purple", "indigo", "violet"];
 
-const changeColor = function() {
+const changeColor = function(evt) {
+  console.log(evt);
   const h1 = document.querySelector("h1");
   h1.style.color = this.style.backgroundColor;
 };
@@ -14,3 +15,7 @@ for(let color of colors) {
   container.appendChild(box);
   box.addEventListener("click", changeColor);
 }
+
+document.body.addEventListener("keypress", function(evt) {
+  console.log(evt);
+});
