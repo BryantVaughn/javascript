@@ -16,6 +16,33 @@ for(let color of colors) {
   box.addEventListener("click", changeColor);
 }
 
-document.body.addEventListener("keypress", function(evt) {
+// document.body.addEventListener("keypress", function(evt) {
+//   console.log(evt);
+// });
+
+const input = document.querySelector("#username");
+// fires with any keypress including non-input changing keys
+input.addEventListener("keydown", function(evt) {
+  console.log("KEY DOWN!");
+});
+// fires with any keypress including non-input changing keys
+input.addEventListener("keyup", function(evt) {
+  console.log("KEY UP!");
+});
+// only fires if key causes change in input, plus return
+input.addEventListener("keypress", function(evt) {
   console.log(evt);
+});
+
+const foodInput = document.querySelector("#food-item")
+const ulItems = document.querySelector("#list-items");
+
+foodInput.addEventListener("keypress", function(evt) {
+  if(evt.key === "Enter") {
+    const newItemText = this.value;
+    const newItem = document.createElement("li");
+    newItem.innerText = newItemText;
+    ulItems.appendChild(newItem);
+    this.value = "";
+  }
 });
