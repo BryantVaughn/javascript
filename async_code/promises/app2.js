@@ -6,6 +6,24 @@ const fakeRequest = (url) => {
           { id: 1, username: "Bilbo" },
           { id: 5, username: "Esmerelda" }
         ],
+        "/users/1": {
+          id: 1,
+          username: "Bilbo",
+          upvotes: 360,
+          city: "Lisbon",
+          topPostId: 454321
+        },
+        "/users/5": {
+          id: 5,
+          username: "Esmerelda",
+          upvotes: 571,
+          city: "Honolulu"
+        },
+        "/posts/454321": {
+          id: 454321,
+          title:
+            "Ladies & Gentlemen, may I introduce my pet pig, Hamlet"
+        },
         "/about": "This is the about page!"
       };
       const data = pages[url];
@@ -19,24 +37,67 @@ const fakeRequest = (url) => {
   });
 };
 
-fakeRequest("/projects")
+// fakeRequest("/projects")
+//   .then((res) => {
+//     console.log("Status Code:", res.status);
+//     console.log("Data:", res.data);
+//     console.log("REQUEST WORKED!");
+//   })
+//   .catch((res) => {
+//     console.log(res.status);
+//     console.log("REQUEST FAILED");
+//   });
+
+//   fakeRequest("/users")
+//     .then((res) => {
+//       console.log("Status Code:", res.status);
+//       console.log("Data:", res.data);
+//       console.log("REQUEST WORKED!");
+//     })
+//     .catch((res) => {
+//       console.log(res.status);
+//       console.log("REQUEST FAILED");
+//     });
+
+// fakeRequest("/users")
+//   .then((res) => {
+//     const id = res.data[0].id;
+//     fakeRequest(`/users/${id}`)
+//       .then((res) => {
+//         const postId = res.data.topPostId;
+//         fakeRequest(`/posts/${postId}`)
+//           .then((res) => {
+//             console.log(res);
+//           })
+//           .catch((res) => {
+//             failure(res);
+//           });
+//       })
+//       .catch((res) => {
+//         failure(res);
+//       });
+//   })
+//   .catch((res) => {
+//     failure(res);
+//   });
+
+fakeRequest("/users")
   .then((res) => {
-    console.log("Status Code:", res.status);
-    console.log("Data:", res.data);
-    console.log("REQUEST WORKED!");
+    const id = res.data[0].id;
+    return fakeRequest(`/users/${id}`);
   })
-  .catch((res) => {
-    console.log(res.status);
-    console.log("REQUEST FAILED");
+  .then((res) => {
+    const postId = res.data.topPostId;
+    return fakeRequest(`/posts/${postId}`);
+  })
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    failure(err);
   });
 
-  fakeRequest("/users")
-    .then((res) => {
-      console.log("Status Code:", res.status);
-      console.log("Data:", res.data);
-      console.log("REQUEST WORKED!");
-    })
-    .catch((res) => {
-      console.log(res.status);
-      console.log("REQUEST FAILED");
-    });
+  const failure = (res) => {
+    console.log("Status Code:", res.status);
+    console.log("Request Failed");
+  };
