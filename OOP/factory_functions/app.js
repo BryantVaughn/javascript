@@ -7,6 +7,8 @@ function rgb(r, g, b) {
 
 console.log(rgb(0, 100, 25));
 
+// One major issue with this approach is
+// each object has unique function.
 function makeColor(r, g, b) {
   const color = {};
   color.r = r;
