@@ -33,9 +33,25 @@
 //   console.log(res.data);
 // });
 
+// using async/await for request data
+// async function getPlanets() {
+//   const res = await axios.get("https://swapi.dev/api/planets21/");
+//   console.log(res.data); // only runs once the above line resolves
+// }
+
+// getPlanets().catch((err) => {
+//   console.log("IN CATCH!!!");
+//   console.log(err);
+// });
+
 async function getPlanets() {
-  const res = await axios.get("https://swapi.dev/api/planets/");
-  console.log(res.data);
+  try {
+    const res = await axios.get("https://swapi.dev/api/planets21/");
+    console.log(res.data);
+  }
+  catch(err) {
+    console.log("IN CATCH!!!", err);
+  }
 }
 
 getPlanets();
