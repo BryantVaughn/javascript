@@ -3,5 +3,5 @@ String.prototype.yell = function() {
 }
 
 Array.prototype.pop = function() {
-  return "SORRY, I WANT THAT ELEMENT. I WILL NEVER POP IT OFF!!!";
+  return "SORRY, I WANT THAT ELEMENT. I WILL NEVER POP IT!!!";
 }
