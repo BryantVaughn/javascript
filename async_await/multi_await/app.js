@@ -64,16 +64,22 @@ const capitalize = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+const printPokemon = (results) => {
+  for(let pokemon of results) {
+    console.log(capitalize(pokemon.data.name));
+  }
+};
+
 async function get3Pokemon() {
   const prom1 = axios.get("https://pokeapi.co/api/v2/pokemon/1");
   const prom2 = axios.get("https://pokeapi.co/api/v2/pokemon/4");
   const prom3 = axios.get("https://pokeapi.co/api/v2/pokemon/7");
-  const poke1 = await prom1; // prom1 is the promise since await was not used above
-  const poke2 = await prom2; // prom2 is the promise since await was not used above
-  const poke3 = await prom3; // prom3 is the promise since await was not used above
-  console.log(capitalize(poke1.data.name));
-  console.log(capitalize(poke2.data.name));
-  console.log(capitalize(poke3.data.name));
+  // const poke1 = await prom1; // prom1 is the promise since await was not used above
+  // const poke2 = await prom2; // prom2 is the promise since await was not used above
+  // const poke3 = await prom3; // prom3 is the promise since await was not used above
+  const results = await Promise.all([ prom1, prom2, prom3 ]);
+  // above waits for all promises to resolve before running below code
+  printPokemon(results);
 }
 
 get3Pokemon();
@@ -100,10 +106,11 @@ async function lightShow() {
   const p2 = changeBodyColor("pink", 1000);
   const p3 = changeBodyColor("orange", 1000);
   const p4 = changeBodyColor("purple", 1000);
-  await p1;
-  await p2;
-  await p3;
-  await p4;
+  const results = await Promise.all([ p1, p2, p3, p4 ]);
+  // await p1;
+  // await p2;
+  // await p3;
+  // await p4;
 }
 
 lightShow();
