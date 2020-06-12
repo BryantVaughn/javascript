@@ -127,3 +127,35 @@ class Color {
 const red = new Color(255, 67, 89, "tomato");
 const white = new Color(255, 255, 255, "white");
 const orange = new Color(230, 126, 34, "carrot");
+
+class Pet {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  eat() {
+    const upperName = this.name[0].toUpperCase() + this.name.slice(1);
+    return `${upperName} is eating`;
+  }
+}
+
+class Cat extends Pet {
+  constructor(name, age, livesLeft=9) {
+    super(name, age);
+    this.livesLeft = livesLeft;
+  }
+
+  meow() {
+    return "MEOWWWW!";
+  }
+}
+
+class Dog extends Pet {
+  bark() {
+    return "WOOOOF!!!"
+  }
+}
+
+const willis = new Cat("willis", 9);
+const tia = new Dog("tia", 6);
