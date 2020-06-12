@@ -55,12 +55,10 @@ class Color {
   }
 
   rgb() {
-    const { r, g, b } = this;
     return `rgb(${this.innerRGB()})`;
   }
 
   rgba(a=1.0) {
-    const { r, g, b } = this;
     return `rgba(${this.innerRGB()}, ${a})`;
   }
 
