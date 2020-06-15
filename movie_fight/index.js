@@ -6,13 +6,14 @@ const fetchData = async (searchTerm) => {
     }
   });
 
-  console.log(response.data);
+  return response.data.Search;
 }
 
 const input = document.querySelector("input");
 
-const onInput = debounce(evt => {
-  fetchData(evt.target.value);
+const onInput = debounce(async evt => {
+  const movies = await fetchData(evt.target.value);
+  console.log(movies);
 }, 500);
 
 input.addEventListener("input", onInput);
