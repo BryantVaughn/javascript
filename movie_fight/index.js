@@ -32,7 +32,7 @@ const onInput = debounce(async evt => {
     dropdown.classList.remove("is-active");
     return;
   }
-  
+
   resultsWrapper.innerHTML = "";
   dropdown.classList.add("is-active");
   for (let movie of movies) {
@@ -44,6 +44,10 @@ const onInput = debounce(async evt => {
       <img src="${imgSrc}" />
       ${movie.Title} (${movie.Year})
     `;
+    option.addEventListener("click", () => {
+      dropdown.classList.remove("is-active");
+      input.value = `${movie.Title} (${movie.Year})`;
+    });
 
     resultsWrapper.appendChild(option);
   }
