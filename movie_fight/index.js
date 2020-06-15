@@ -44,9 +44,11 @@ const onInput = debounce(async evt => {
       <img src="${imgSrc}" />
       ${movie.Title} (${movie.Year})
     `;
+
     option.addEventListener("click", () => {
       dropdown.classList.remove("is-active");
       input.value = `${movie.Title} (${movie.Year})`;
+      onMovieSelect(movie);
     });
 
     resultsWrapper.appendChild(option);
@@ -60,3 +62,14 @@ document.addEventListener("click", evt => {
     dropdown.classList.remove("is-active");
   }
 });
+
+const onMovieSelect = async movie => {
+  const response = await axios.get("http://www.omdbapi.com/", {
+    params: {
+      apikey: "1ba7eb86",
+      i: movie.imdbID
+    }
+  });
+
+  console.log(response.data);
+};
