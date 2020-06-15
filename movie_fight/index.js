@@ -11,14 +11,20 @@ const fetchData = async (searchTerm) => {
 
 const input = document.querySelector("input");
 
-let timeoutId;
-const onInput = (evt) => {
-  // stop timer if user still typing
-  if(timeoutId) clearTimeout(timeoutId);
+const debounce = (func, delay=1000) => {
+  let timeoutId;
+  return (...args) => {
+    // stop timer if user still typing
+    if (timeoutId) clearTimeout(timeoutId);
 
-  timeoutId = setTimeout(() => {
-    fetchData(evt.target.value);
-  }, 500);
+    timeoutId = setTimeout(() => {
+      func.apply(null, args);
+    }, delay);
+  };
 };
+
+const onInput = debounce(evt => {
+  fetchData(evt.target.value);
+}, 500);
 
 input.addEventListener("input", onInput);
