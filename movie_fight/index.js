@@ -67,8 +67,8 @@ const runComparison = () => {
   leftSideStats.forEach((leftStat, idx) => {
     const rightStat = rightSideStats[idx];
     
-    const leftValue = leftStat.dataset.value;
-    const rightValue = rightStat.dataset.value;
+    const leftValue = parseFloat(leftStat.dataset.value);
+    const rightValue = parseFloat(rightStat.dataset.value);
 
     if (rightValue > leftValue) {
       leftStat.classList.remove("is-primary");
