@@ -8,59 +8,16 @@ const fetchData = async (searchTerm) => {
 
   if (response.data.Error) return [];
   return response.data.Search;
-}
+};
 
-const root = document.querySelector(".autocomplete");
-root.innerHTML = `
-  <label><b>Search For a Movie</b></label>
-  <input class="input" />
-  <div class="dropdown">
-    <div class="dropdown-menu">
-      <div class="dropdown-content results"></div>
-    </div>
-  </div>
-`;
-
-const input = document.querySelector(".input");
-const dropdown = document.querySelector(".dropdown");
-const resultsWrapper = document.querySelector(".results");
-
-const onInput = debounce(async evt => {
-  const movies = await fetchData(evt.target.value);
-
-  if (!movies.length) {
-    dropdown.classList.remove("is-active");
-    return;
-  }
-
-  resultsWrapper.innerHTML = "";
-  dropdown.classList.add("is-active");
-  for (let movie of movies) {
-    const option = document.createElement("a");
-    const imgSrc = movie.Poster === "N/A" ? "" : movie.Poster;
-    
-    option.classList.add("dropdown-item");
-    option.innerHTML = `
-      <img src="${imgSrc}" />
-      ${movie.Title} (${movie.Year})
-    `;
-
-    option.addEventListener("click", () => {
-      dropdown.classList.remove("is-active");
-      input.value = `${movie.Title} (${movie.Year})`;
-      onMovieSelect(movie);
-    });
-
-    resultsWrapper.appendChild(option);
-  }
-}, 500);
-
-input.addEventListener("input", onInput);
-
-document.addEventListener("click", evt => {
-  if (!root.contains(evt.target)) {
-    dropdown.classList.remove("is-active");
-  }
+createAutoComplete({
+  root: document.querySelector(".autocomplete")
+});
+createAutoComplete({
+  root: document.querySelector(".autocomplete-two")
+});
+createAutoComplete({
+  root: document.querySelector(".autocomplete-three")
 });
 
 const onMovieSelect = async movie => {
@@ -88,6 +45,7 @@ const movieTemplate = movieDetail => {
         <div class="content">
           <h1>${movieDetail.Title}</h1>
           <h4>${movieDetail.Genre}</h4>
+          <p>${movieDetail.Rated}</p>
           <p>${movieDetail.Plot}</p>
         </div>
       </div>
