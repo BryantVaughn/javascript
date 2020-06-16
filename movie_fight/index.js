@@ -73,10 +73,14 @@ const runComparison = () => {
     if (rightValue > leftValue) {
       leftStat.classList.remove("is-primary");
       leftStat.classList.add("is-warning");
+      rightStat.classList.remove("is-warning");
+      rightStat.classList.add("is-primary");
     }
     else {
       rightStat.classList.remove("is-primary");
       rightStat.classList.add("is-warning");
+      leftStat.classList.remove("is-primary");
+      leftStat.classList.add("is-warning");
     }
   });
 };
