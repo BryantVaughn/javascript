@@ -64,7 +64,7 @@ const movieTemplate = movieDetail => {
         <div class="content">
           <h1>${movieDetail.Title}</h1>
           <h4>${movieDetail.Genre}</h4>
-          <p>${movieDetail.Rated}</p>
+          <p>${movieDetail.Rated} (${movieDetail.Released})</p>
           <p>${movieDetail.Plot}</p>
         </div>
       </div>
@@ -72,14 +72,6 @@ const movieTemplate = movieDetail => {
     <article class="notification is-primary">
       <p class="title">${movieDetail.Awards}</p>
       <p class="subtitle">Awards</p>
-    </article>
-    <article class="notification is-primary">
-      <p class="title">${movieDetail.Released}</p>
-      <p class="subtitle">Released</p>
-    </article>
-    <article class="notification is-primary">
-      <p class="title">${movieDetail.BoxOffice}</p>
-      <p class="subtitle">Box Office</p>
     </article>
     <article class="notification is-primary">
       <p class="title">${movieDetail.Metascore}</p>
