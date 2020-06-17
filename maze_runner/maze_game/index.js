@@ -80,8 +80,9 @@ const stepThroughMaze = (row, column) => {
     else if (direction === "right") verticals[row][column] = true;
     else if (direction === "up") horizontals[row-1][column] = true;
     else if (direction === "down") horizontals[row][column] = true;
-  }
-  // Visit that next cell
-}
 
-stepThroughMaze(1, 1);
+    stepThroughMaze(nextRow, nextColumn);
+  }
+};
+
+stepThroughMaze(startRow, startColumn);
