@@ -2,8 +2,8 @@ const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
 
 const width = window.innerWidth;
 const height = window.innerHeight;
-const cellsX = 17;
-const cellsY = 10;
+const cellsX = 10;
+const cellsY = 6;
 
 const unitLengthX = width / cellsX;
 const unitLengthY = height / cellsY;
@@ -178,6 +178,7 @@ Events.on(engine, "collisionStart", evt => {
       labels.includes(collision.bodyA.label) && 
       labels.includes(collision.bodyB.label)
     ) {
+      document.querySelector(".winner").classList.remove("hidden");
       world.gravity.y = 1;
       world.bodies.forEach(body => {
         if (body.label === "wall") {
