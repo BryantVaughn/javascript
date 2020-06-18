@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  position: fixed;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.winner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  height: 95vh;
+  width: 100vw;
+}
+
+h1 {
+  color: #fff;
+  font-size: 64px;
+  text-transform: uppercase;
+}
