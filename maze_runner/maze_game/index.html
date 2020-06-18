@@ -6,34 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js"></script>
   <title>Maze Runner</title>
-  <style>
-    body {
-      margin: 0;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .winner {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      z-index: 1;
-      height: 100vh;
-      width: 100vw;
-    }
-
-    h1 {
-      color: #fff;
-      font-size: 48px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="winner hidden">
     <h1>You Win!</h1>
+    <label class="level-label" for="level">Choose Your Difficulty Level:</label>
+    <select name="level" id="level">
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+    <button class="restart">
+      Play Again
+    </button>
   </div>
   <script src="index.js"></script>
 </body>
