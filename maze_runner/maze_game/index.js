@@ -2,7 +2,9 @@ const { Engine, Render, Runner, World, Bodies } = Matter;
 
 const width = 600;
 const height = 600;
-const cells = 3;
+const cells = 6;
+
+const unitLength = width / cells;
 
 const engine = Engine.create();
 const { world } = engine;
@@ -54,13 +56,10 @@ const startRow = Math.floor(Math.random() * cells);
 const startColumn = Math.floor(Math.random() * cells);
 
 const stepThroughMaze = (row, column) => {
-  // If I have visited the cell at [row, column], return
   if (grid[row][column]) return;
 
-  // Mark this cell as being visited
   grid[row][column] = true;
 
-  // Assemble randomly-ordered list of neighbors
   const neighbors = shuffle([
     [row-1, column, "up"],
     [row, column+1, "right"],
@@ -68,7 +67,6 @@ const stepThroughMaze = (row, column) => {
     [row, column-1, "left"]
   ]);
 
-  // For each neighbor...
   for (let neighbor of neighbors) {
     const [nextRow, nextColumn, direction] = neighbor;
     if (nextRow < 0 || nextRow >= cells
@@ -86,3 +84,37 @@ const stepThroughMaze = (row, column) => {
 };
 
 stepThroughMaze(startRow, startColumn);
+
+horizontals.forEach((row, rowIdx) => {
+  row.forEach((open, columnIdx) => {
+    if (open) return;
+
+    const wall = Bodies.rectangle(
+      columnIdx * unitLength + unitLength / 2,
+      rowIdx * unitLength + unitLength,
+      unitLength,
+      5,
+      {
+        isStatic: true
+      }
+    );
+    World.add(world, wall);
+  });
+});
+
+verticals.forEach((row, rowIdx) => {
+  row.forEach((open, columnIdx) => {
+    if (open) return;
+
+    const wall = Bodies.rectangle(
+      columnIdx * unitLength + unitLength,
+      rowIdx * unitLength + unitLength / 2,
+      5,
+      unitLength,
+      {
+        isStatic: true
+      }
+    );
+    World.add(world, wall);
+  })
+});
