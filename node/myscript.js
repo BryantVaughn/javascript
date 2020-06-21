@@ -1,3 +1,13 @@
 const message = "hi there";
 
-module.exports = message;
+let counter = 0;
+
+module.exports = {
+  message,
+  incrementCounter() {
+    counter += 1;
+  },
+  getCounter() {
+    return counter;
+  }
+};
