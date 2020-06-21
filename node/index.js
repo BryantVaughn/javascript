@@ -1,3 +1,11 @@
-const message = require("./myscript");
+// node wraps files into function with 5 arguments
+console.log(arguments);
 
-console.log(message);
+// require
+console.log(require);
+
+// module
+console.log(module);
+
+// filename
+console.log(__filename);
