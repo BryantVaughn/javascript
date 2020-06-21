@@ -12,15 +12,19 @@ const { lstat } = fs.promises;
 fs.readdir(process.cwd(), async (err, files) => {
   if (err) throw new Error(err);
 
-  for (let file of files) {
-    try {
-      const stats = await lstat(file);
-      console.log(file, stats.isFile());
-    }
-    catch (err) {
-      throw new Error(err);
-    }
+  // GOOD SOLUTION
+  // =============================================
+  const statPromises = files.map(file => {
+    return lstat(file);
+  });
+
+  const allStats = await Promise.all(statPromises);
+
+  for (let stats of allStats) {
+    const index = allStats.indexOf(stats);
+    console.log(files[index], stats.isFile());
   }
+  // =============================================
 
   // BAD CODE TO FIND IF FILE OR DIRECTORY
   // for (let file of files) {
@@ -51,7 +55,16 @@ fs.readdir(process.cwd(), async (err, files) => {
   //   });
   // }
 
-
+  // Initial approach using promises
+  // for (let file of files) {
+  //   try {
+  //     const stats = await lstat(file);
+  //     console.log(file, stats.isFile());
+  //   }
+  //   catch (err) {
+  //     throw new Error(err);
+  //   }
+  // }
 });
 
 // Promises Method #1
