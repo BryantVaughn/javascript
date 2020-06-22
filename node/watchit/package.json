@@ -1,15 +1,18 @@
 {
   "name": "watchit",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node project runner to reload app on any file changes similar to nodemon.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Bryant Vaughn",
   "license": "ISC",
   "bin": {
     "watchit": "index.js"
+  },
+  "dependencies": {
+    "chokidar": "^3.4.0"
   }
 }
