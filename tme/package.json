@@ -1,12 +1,15 @@
 {
   "name": "tme",
   "version": "1.0.0",
-  "description": "",
+  "description": "Testing framework to be used with JS projects. This framework is built from scratch and utilizes Node.js.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Bryant Vaughn",
+  "license": "ISC",
+  "bin": {
+    "tme": "index.js"
+  }
 }
