@@ -23,7 +23,7 @@ class Runner {
         beforeEaches.push(fn);
       };
 
-      global.it = async (desc, fn) => {
+      global.it = (desc, fn) => {
         its.push({ desc, fn });
       };
 
