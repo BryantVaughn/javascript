@@ -15,6 +15,7 @@ class Runner {
     for (let file of this.testFiles) {
       console.log(chalk.blueBright(`---- Running ${file.shortName}`));
       const beforeEaches = [];
+      const its = [];
 
       global.render = render;
       
@@ -23,20 +24,26 @@ class Runner {
       };
 
       global.it = (desc, fn) => {
-        beforeEaches.forEach(func => func());
-        try {
-          fn();
-          console.log(chalk.green(`\tOK - ${desc}`));
-        }
-        catch (err) {
-          const message = err.message.replace(/\n/g, "\n\t\t");
-          console.log(chalk.red(`\tX - ${desc}`));
-          console.log(chalk.red("\t", message));
-        }
+        its.push({ desc, fn });
       };
 
       try {
         require(file.name);
+        for (let _it of its) {
+          const { desc, fn } = _it;
+          for (let _before of beforeEaches) {
+            _before();
+          }
+          try {
+            await fn();
+            console.log(chalk.green(`\tOK - ${desc}`));
+          }
+          catch (err) {
+            const message = err.message.replace(/\n/g, "\n\t\t");
+            console.log(chalk.red(`\tX - ${desc}`));
+            console.log(chalk.red("\t", message));
+          }
+        }
       }
       catch (err) {
         console.log(chalk.red(err));
